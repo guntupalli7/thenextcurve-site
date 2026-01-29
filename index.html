@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE NEXT CURVE | Future Tech & Wealth Stories</title>
-    <meta name="description" content="We live on the exponential curve of history. Exploring innovations redefing our future.">
+    <title>THE NEXT CURVE | Where Technology Changed Everything</title>
+    <meta name="description" content="From disasters that cost billions to breakthroughs that saved millions. Every story where technology changed everything.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,6 +14,7 @@
                         'neon-gold': '#FFD700',
                         'cyber-black': '#0a0a0a',
                         'void': '#000000',
+                        'alert-red': '#ff3333',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -28,11 +29,7 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Custom Glitch Effect */
-        .glitch-text:hover {
-            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
-            color: #FFD700;
-        }
+        .glitch-text:hover { animation: glitch 0.3s infinite; color: #FFD700; }
         @keyframes glitch {
             0% { transform: translate(0) }
             20% { transform: translate(-2px, 2px) }
@@ -41,73 +38,109 @@
             80% { transform: translate(2px, -2px) }
             100% { transform: translate(0) }
         }
+        .grid-bg {
+            background-image: linear-gradient(to right, #111 1px, transparent 1px), linear-gradient(to bottom, #111 1px, transparent 1px);
+            background-size: 4rem 4rem;
+        }
     </style>
 </head>
-<body class="bg-void text-white font-sans antialiased overflow-x-hidden selection:bg-neon-gold selection:text-black">
+<body class="bg-void text-white font-sans antialiased selection:bg-neon-gold selection:text-black">
 
-    <main class="min-h-screen flex flex-col items-center justify-center relative">
-        
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] z-0 pointer-events-none"></div>
+    <main class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 grid-bg [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] z-0 pointer-events-none"></div>
 
-        <div class="z-10 text-center px-4 max-w-4xl mx-auto">
-            
+        <div class="z-10 text-center px-4 max-w-5xl mx-auto mt-10">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-800 bg-gray-900/50 backdrop-blur-sm mb-8">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                 <span class="text-xs font-mono text-gray-400 uppercase tracking-widest">System Online</span>
             </div>
 
-            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6">
-                THE NEXT <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 glitch-text cursor-default transition-colors">CURVE</span>
+            <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-6 uppercase">
+                Where Technology <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 glitch-text cursor-default transition-colors">Changed Everything</span>
             </h1>
 
-            <p class="text-xl md:text-2xl text-gray-400 font-light mb-4 max-w-3xl mx-auto leading-relaxed">
-                We live on the <span class="text-neon-gold font-bold">exponential curve</span> of history.
-            </p>
-            <p class="text-lg md:text-xl text-gray-500 font-light mb-12 max-w-2xl mx-auto leading-relaxed">
-                Exploring the innovations redefining our future—and the lost technologies of our past.
+            <p class="text-xl md:text-2xl text-gray-400 font-light mb-8 max-w-3xl mx-auto leading-relaxed">
+                From disasters that cost billions to breakthroughs that saved millions. <br>
+                From ancient innovations to future tech.
             </p>
 
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" class="group relative px-8 py-4 bg-white text-black font-bold text-lg tracking-wide overflow-hidden rounded-sm hover:scale-105 transition-transform duration-200">
-                    <span class="relative z-10 group-hover:text-black">WATCH LATEST DOC</span>
-                    <div class="absolute inset-0 bg-neon-gold transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 ease-out"></div>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mb-16">
+                <a href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" class="px-8 py-4 bg-white text-black font-bold text-lg hover:bg-neon-gold transition-colors duration-200 rounded-sm">
+                    WATCH LATEST DOC
                 </a>
-                
-                <a href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" class="px-8 py-4 border border-gray-700 text-gray-300 font-mono text-sm uppercase tracking-widest hover:border-white hover:text-white transition-colors">
-                    Access The Vault
+                <a href="#archive" class="px-8 py-4 border border-gray-700 text-gray-300 font-mono text-sm uppercase tracking-widest hover:border-white hover:text-white transition-colors">
+                    Access The Archive
                 </a>
             </div>
-
-        </div>
-
-        <div class="absolute bottom-10 animate-bounce text-gray-600">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
         </div>
     </main>
 
-    <section class="py-24 bg-cyber-black border-t border-gray-900">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row gap-12 items-start">
-                
-                <div class="w-full md:w-2/3 aspect-video bg-gray-900 rounded-lg overflow-hidden border border-gray-800 shadow-2xl shadow-neon-gold/5">
-                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/8-ybF8D_wWE?si=YOUR_PARAMS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <section class="py-20 bg-cyber-black border-t border-gray-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-xs font-mono text-neon-gold uppercase tracking-widest mb-8 border-l-2 border-neon-gold pl-4">Latest Investigation</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-start">
+                <div class="w-full lg:w-2/3 aspect-video bg-gray-900 shadow-2xl shadow-neon-gold/5 rounded-sm overflow-hidden border border-gray-800">
+                     <iframe class="w-full h-full" src="https://www.youtube.com/embed/8-ybF8D_wWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
-                <div class="w-full md:w-1/3 space-y-6">
-                    <h2 class="text-3xl font-bold text-white">The Gold Mine in Your Pocket</h2>
-                    <p class="text-gray-400 leading-relaxed">
-                        It's not just a phone. It's a strategic mineral reserve. In this dossier, we uncover the $57 Billion secret buried in our landfills and why global superpowers are fighting over your old iPhone.
+                <div class="w-full lg:w-1/3 space-y-6">
+                    <h3 class="text-3xl font-bold text-white">The Gold Mine in Your Pocket</h3>
+                    <div class="flex gap-2">
+                        <span class="px-2 py-1 bg-gray-800 text-xs font-mono text-gray-300 rounded">COMMODITIES</span>
+                        <span class="px-2 py-1 bg-red-900/30 text-xs font-mono text-red-400 border border-red-900/50 rounded">CRITICAL</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed text-sm">
+                        It's not just a phone. It's a strategic mineral reserve. Uncovering the $57 Billion secret buried in our landfills and why global superpowers are fighting over your old iPhone.
                     </p>
-                    <div class="h-px w-full bg-gray-800"></div>
-                    <ul class="space-y-2 font-mono text-sm text-neon-gold">
-                        <li>> Status: DECLASSIFIED</li>
-                        <li>> Sector: COMMODITIES</li>
-                        <li>> Impact: CRITICAL</li>
-                    </ul>
+                    <a href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" class="inline-block text-neon-gold hover:text-white border-b border-neon-gold pb-1 transition-colors">Watch Full Breakdown →</a>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="archive" class="py-20 bg-void border-t border-gray-900">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-xs font-mono text-gray-500 uppercase tracking-widest mb-10 text-center">Classified Archives</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="group p-6 border border-gray-800 hover:border-red-500/50 hover:bg-red-900/5 transition-all cursor-pointer">
+                    <h3 class="text-xl font-bold text-gray-200 group-hover:text-red-400 mb-2">[DISASTERS]</h3>
+                    <p class="text-sm text-gray-500">When technology fails catastrophically.</p>
+                </div>
+                <div class="group p-6 border border-gray-800 hover:border-purple-500/50 hover:bg-purple-900/5 transition-all cursor-pointer">
+                    <h3 class="text-xl font-bold text-gray-200 group-hover:text-purple-400 mb-2">[CRIMES]</h3>
+                    <p class="text-sm text-gray-500">When code becomes a weapon.</p>
+                </div>
+                <div class="group p-6 border border-gray-800 hover:border-green-500/50 hover:bg-green-900/5 transition-all cursor-pointer">
+                    <h3 class="text-xl font-bold text-gray-200 group-hover:text-green-400 mb-2">[BREAKTHROUGHS]</h3>
+                    <p class="text-sm text-gray-500">When impossible becomes reality.</p>
+                </div>
+                <div class="group p-6 border border-gray-800 hover:border-blue-500/50 hover:bg-blue-900/5 transition-all cursor-pointer">
+                    <h3 class="text-xl font-bold text-gray-200 group-hover:text-blue-400 mb-2">[MYSTERIES]</h3>
+                    <p class="text-sm text-gray-500">When tech holds the clues.</p>
+                </div>
+                <div class="group p-6 border border-gray-800 hover:border-yellow-500/50 hover:bg-yellow-900/5 transition-all cursor-pointer">
+                    <h3 class="text-xl font-bold text-gray-200 group-hover:text-yellow-400 mb-2">[ANCIENT]</h3>
+                    <p class="text-sm text-gray-500">Innovations 2,000 years ahead of time.</p>
+                </div>
+                <div class="group p-6 border border-gray-800 hover:border-orange-500/50 hover:bg-orange-900/5 transition-all cursor-pointer">
+                    <h3 class="text-xl font-bold text-gray-200 group-hover:text-orange-400 mb-2">[FAILURES]</h3>
+                    <p class="text-sm text-gray-500">When billions meet bad ideas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-gray-900 text-center text-gray-600 font-mono text-sm">
+        <p>&copy; 2025 THE NEXT CURVE. All systems nominal.</p>
+        <div class="mt-4 flex justify-center gap-6">
+            <a href="https://www.youtube.com/@TheNextCurveOfficial" class="hover:text-white transition-colors">YouTube</a>
+            <a href="#" class="hover:text-white transition-colors">Instagram</a>
+            <a href="#" class="hover:text-white transition-colors">TikTok</a>
+        </div>
+    </footer>
 
 </body>
 </html>
