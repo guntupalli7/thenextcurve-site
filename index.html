@@ -3,114 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Next Curve | Future Tech & Wealth Stories</title>
-    <meta name="description" content="Inside the high-stakes world of future technology and the stories of wealth that shape our world. From The Next Curve.">
+    <title>The Next Curve | Tech, Money, & Power</title>
     <style>
         :root {
-            --bg: #0a0a0a;
+            --bg: #050505;
             --accent: #ffffff;
-            --text-secondary: #888;
-            --card-bg: #161616;
+            --secondary: #a1a1a1;
+            --card-bg: #111;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--accent);
             margin: 0;
+            line-height: 1.6;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
         }
 
         .container {
-            max-width: 500px;
-            padding: 40px 20px;
+            max-width: 1000px;
+            padding: 60px 20px;
+            text-align: center;
         }
 
         .logo {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            border: 2px solid var(--accent);
-            margin-bottom: 24px;
-            object-fit: cover;
+            margin-bottom: 20px;
+            border: 1px solid #333;
         }
 
         h1 {
-            font-size: 28px;
-            letter-spacing: -1px;
-            margin: 0 0 12px 0;
+            font-size: 2.5rem;
+            letter-spacing: -2px;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .tagline {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        /* Hero Section - Featured Video */
+        .featured-section {
+            width: 100%;
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            border: 1px solid #222;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* Investigation Grid */
+        .grid-header {
+            text-align: left;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .investigation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            text-align: left;
+            transition: transform 0.3s;
+            border: 1px solid #1a1a1a;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+        }
+
+        .card-thumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 0.7rem;
+            color: var(--secondary);
             text-transform: uppercase;
         }
 
-        p {
-            color: var(--text-secondary);
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 32px;
+        /* Description Block */
+        .channel-info {
+            text-align: left;
+            background: #111;
+            padding: 40px;
+            margin: 60px 0;
+            border-left: 4px solid var(--accent);
         }
 
         .cta-button {
-            display: block;
+            display: inline-block;
             background: var(--accent);
             color: var(--bg);
             text-decoration: none;
-            padding: 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 18px;
-            transition: transform 0.2s, opacity 0.2s;
-            margin-bottom: 12px;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.02);
-            opacity: 0.9;
-        }
-
-        .secondary-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            border-bottom: 1px solid transparent;
-            transition: border 0.2s;
-        }
-
-        .secondary-link:hover {
-            border-bottom: 1px solid var(--text-secondary);
-        }
-
-        footer {
-            margin-top: 60px;
-            font-size: 12px;
-            color: #444;
+            padding: 15px 40px;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .mission-footer {
+            margin-top: 100px;
+            color: #444;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .investigation-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="logo.jpg" alt="The Next Curve Logo" class="logo">
-
+        <img src="logo.jpg" alt="Logo" class="logo">
         <h1>The Next Curve</h1>
-        
-        <p>
-            Future Tech. Wealth Stories. High-Stakes Documentaries. <br>
-            Deconstructing the curves that define the next decade.
-        </p>
+        <span class="tagline">Tech • Money • Power</span>
 
-        <a href="https://www.youtube.com/@TheNextCurveOfficial" class="cta-button">Watch the Documentaries</a>
+        <div class="featured-section">
+            <span class="section-label">Latest Investigation</span>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Fp8XeOZn18c" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
 
-        <a href="mailto:henextcurve.official@gmail.com" class="secondary-link">Business Inquiries</a>
+        <div class="channel-info">
+            <p>While the mainstream focuses on the hype, we track the consequences. From the geopolitical wars over microchips to the silent algorithms reshaping the global economy, <strong>The Next Curve</strong> exposes the operating systems of the future.</p>
+            <p><strong>Expect:</strong> High-Stakes Documentaries • Tech Economics • Uncomfortable Truths.</p>
+            <p><small>New Investigations every 10 days. Based in London.</small></p>
+            <a href="https://www.youtube.com/@TheNextCurveOfficial" class="cta-button">Subscribe to Channel</a>
+        </div>
 
-        <footer>
-            PHASE 1: VIRAL VELOCITY
-        </footer>
+        <div class="grid-header">
+            <span class="section-label">The Archive</span>
+        </div>
+
+        <div class="investigation-grid">
+            <a href="https://youtu.be/8AJDlqnTFBU" class="video-card" target="_blank">
+                <div class="card-thumb" style="background-image: url('https://img.youtube.com/vi/8AJDlqnTFBU/mqdefault.jpg');"></div>
+                <div class="card-content">
+                    <p class="card-title">Why We Are About to Be Trapped on Earth Forever</p>
+                    <p class="card-meta">Space Tech • 2026</p>
+                </div>
+            </a>
+
+            <a href="https://youtu.be/gZVFPhoVtzY" class="video-card" target="_blank">
+                <div class="card-thumb" style="background-image: url('https://img.youtube.com/vi/gZVFPhoVtzY/mqdefault.jpg');"></div>
+                <div class="card-content">
+                    <p class="card-title">The Virus That Destroyed 1,000 Nuclear Centrifuges</p>
+                    <p class="card-meta">Cyberwar • Stuxnet</p>
+                </div>
+            </a>
+
+            <a href="https://youtu.be/8-ybF8D_wWE" class="video-card" target="_blank">
+                <div class="card-thumb" style="background-image: url('https://img.youtube.com/vi/8-ybF8D_wWE/mqdefault.jpg');"></div>
+                <div class="card-content">
+                    <p class="card-title">Your Old Phone Contains $5 of Gold (Hidden Wealth)</p>
+                    <p class="card-meta">Resources • Geopolitics</p>
+                </div>
+            </a>
+
+            <a href="https://youtu.be/rswaIfNvFUs" class="video-card" target="_blank">
+                <div class="card-thumb" style="background-image: url('https://img.youtube.com/vi/rswaIfNvFUs/mqdefault.jpg');"></div>
+                <div class="card-content">
+                    <p class="card-title">The $300B Empire: How Indian IT Conquered the World</p>
+                    <p class="card-meta">Economics • Wealth</p>
+                </div>
+            </a>
+
+            <a href="https://youtu.be/ML-P_pK8Ha0" class="video-card" target="_blank">
+                <div class="card-thumb" style="background-image: url('https://img.youtube.com/vi/ML-P_pK8Ha0/mqdefault.jpg');"></div>
+                <div class="card-content">
+                    <p class="card-title">The $100 Camera That Let Strangers Into 20,000 Homes</p>
+                    <p class="card-meta">Privacy • Security</p>
+                </div>
+            </a>
+
+            <a href="https://youtu.be/mYgRyVLKfog" class="video-card" target="_blank">
+                <div class="card-thumb" style="background-image: url('https://img.youtube.com/vi/mYgRyVLKfog/mqdefault.jpg');"></div>
+                <div class="card-content">
+                    <p class="card-title">Stop Writing Code in 2026 (Do This Instead)</p>
+                    <p class="card-meta">Future Tech • AI</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="mission-footer">
+            MISSION: PREPARING YOU FOR THE WORLD THAT IS COMING.
+        </div>
     </div>
 
 </body>
