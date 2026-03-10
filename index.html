@@ -2,35 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>The Next Curve | Future Tech & Wealth</title>
+  <title>The Next Curve | Future Tech, Wealth & Power</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="The Next Curve – long-form investigations into AI, future tech, and the economy." />
+  <meta name="description"
+        content="The Next Curve — high-stakes documentaries on the intersection of technology, money, and power." />
   <link rel="icon" type="image/png" href="favicon.png" />
 
-  <!-- Simple, clean styling -->
   <style>
     :root {
-      --bg: #050814;
-      --bg-card: #0b1020;
-      --accent: #4ade80;
-      --accent-soft: rgba(74, 222, 128, 0.15);
+      --bg: #02040a;
+      --bg-elevated: #060914;
+      --bg-card: #050815;
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.25);
+      --accent-strong: #fb923c;
+      --danger: #f97373;
       --text-main: #f9fafb;
       --text-muted: #9ca3af;
-      --border-subtle: #1f2933;
-      --danger: #f97373;
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --border-subtle: #1f2937;
+      --border-strong: #4b5563;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       min-height: 100vh;
-      font-family: var(--font-main);
-      background: radial-gradient(circle at top, #111827 0, #020617 55%);
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #0b1120 0, #02040a 50%, #020617 100%);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
@@ -41,11 +48,18 @@
     }
 
     .page {
-      max-width: 1120px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 24px 16px 48px;
+      padding: 24px 16px 40px;
     }
 
+    @media (min-width: 960px) {
+      .page {
+        padding: 32px 24px 56px;
+      }
+    }
+
+    /* Top chrome */
     header {
       display: flex;
       align-items: center;
@@ -60,23 +74,27 @@
       gap: 12px;
     }
 
-    .brand-logo {
+    .brand-mark {
       width: 40px;
       height: 40px;
       border-radius: 12px;
-      background: conic-gradient(from 220deg, #22c55e, #22d3ee, #6366f1, #22c55e);
+      background:
+        conic-gradient(from 200deg, #f97316, #22d3ee, #6366f1, #f97316);
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #020617;
       font-weight: 700;
       font-size: 20px;
-      color: #020617;
+      box-shadow:
+        0 0 0 1px rgba(15, 23, 42, 0.9),
+        0 10px 30px rgba(15, 23, 42, 0.9);
     }
 
     .brand-text-main {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+      font-family: "Oswald", system-ui, -apple-system, sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
@@ -85,55 +103,58 @@
       color: var(--text-muted);
     }
 
-    .nav-links {
+    .nav {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
-    .nav-links a {
-      font-size: 13px;
-      padding: 8px 12px;
+    .nav a {
+      font-size: 12px;
+      padding: 7px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      border: 1px solid rgba(148, 163, 184, 0.5);
       color: var(--text-muted);
-      transition: all 0.15s ease;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: all 0.12s ease;
+      background-color: rgba(15, 23, 42, 0.8);
     }
 
-    .nav-links a span.icon {
+    .nav a span.icon {
       font-size: 14px;
     }
 
-    .nav-links a:hover {
+    .nav a:hover {
       border-color: var(--accent);
       color: var(--accent);
-      background-color: rgba(15, 23, 42, 0.9);
+      background-color: rgba(15, 23, 42, 1);
     }
 
-    main {
+    /* Hero / Top copy */
+    .hero {
       display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
       gap: 24px;
+      margin-bottom: 32px;
     }
 
     @media (max-width: 880px) {
-      main {
+      .hero {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .hero {
-      background: radial-gradient(circle at top left, #111827 0, #020617 70%);
+    .hero-main {
+      background: radial-gradient(circle at top left, #0b1120 0, #020617 70%);
       border-radius: 24px;
-      padding: 24px 24px 20px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 22px 22px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
       box-shadow:
-        0 18px 45px rgba(15, 23, 42, 0.85),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
+        0 18px 45px rgba(15, 23, 42, 0.95),
+        0 0 0 1px rgba(2, 6, 23, 0.9);
       position: relative;
       overflow: hidden;
     }
@@ -144,62 +165,64 @@
       gap: 6px;
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
+      letter-spacing: 0.16em;
       padding: 6px 10px;
       border-radius: 999px;
-      background-color: var(--accent-soft);
-      border: 1px solid rgba(74, 222, 128, 0.45);
+      border: 1px solid rgba(248, 250, 252, 0.14);
+      background-color: rgba(15, 23, 42, 0.9);
+      color: var(--accent-strong);
       margin-bottom: 12px;
     }
 
     .hero-tag-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
       background-color: var(--accent);
-      box-shadow: 0 0 10px rgba(74, 222, 128, 0.9);
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.9);
     }
 
     .hero-title {
+      font-family: "Oswald", system-ui, sans-serif;
       font-size: clamp(26px, 4vw, 32px);
-      line-height: 1.1;
-      margin: 0 0 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 8px;
     }
 
-    .hero-subtitle {
+    .hero-kicker {
       font-size: 14px;
       color: var(--text-muted);
-      max-width: 540px;
+      max-width: 560px;
       margin-bottom: 16px;
     }
 
-    .hero-meta {
+    .hero-meta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 18px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
     }
 
-    .hero-meta span {
+    .hero-meta-pill {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background-color: rgba(15, 23, 42, 0.8);
+      background-color: rgba(15, 23, 42, 0.9);
     }
 
-    .hero-meta span .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background-color: #22d3ee;
+    .hero-meta-pill .sq {
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: linear-gradient(135deg, #f97316, #22d3ee);
     }
 
     .hero-cta-row {
@@ -207,223 +230,161 @@
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
+      margin-bottom: 10px;
     }
 
-    .hero-cta-primary {
+    .hero-btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 9px 14px;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, #22c55e, #22d3ee);
+      background: linear-gradient(135deg, #f97316, #22d3ee);
       color: #020617;
-      font-weight: 600;
       font-size: 13px;
+      font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 10px 35px rgba(34, 197, 94, 0.35);
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.9);
       transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
     }
 
-    .hero-cta-primary:hover {
+    .hero-btn-primary:hover {
       transform: translateY(-1px);
       filter: brightness(1.05);
-      box-shadow: 0 14px 40px rgba(34, 197, 94, 0.45);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 1);
     }
 
-    .hero-cta-secondary {
+    .hero-btn-secondary {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background-color: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background-color: rgba(2, 6, 23, 0.9);
       color: var(--text-muted);
       font-size: 12px;
       cursor: pointer;
       transition: all 0.12s ease;
     }
 
-    .hero-cta-secondary:hover {
+    .hero-btn-secondary:hover {
       border-color: var(--accent);
       color: var(--accent);
     }
 
     .hero-footnote {
-      margin-top: 12px;
       font-size: 11px;
       color: var(--text-muted);
+      max-width: 520px;
     }
 
     .hero-footnote strong {
-      color: var(--accent);
+      color: var(--accent-strong);
       font-weight: 600;
     }
 
     .hero-glow {
       position: absolute;
-      inset: auto -40% -55%;
-      height: 260px;
-      background: radial-gradient(circle at center, rgba(34, 197, 94, 0.24), transparent 65%);
+      inset: auto -35% -55%;
+      height: 240px;
+      background:
+        radial-gradient(circle at center,
+          rgba(249, 115, 22, 0.26),
+          transparent 64%);
       opacity: 0.7;
       pointer-events: none;
     }
 
-    /* Sidebar / Latest Investigation */
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .card {
-      background-color: var(--bg-card);
+    .hero-side {
+      background-color: var(--bg-elevated);
       border-radius: 20px;
       padding: 16px 16px 14px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
     }
 
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .card-title {
+    .hero-side-title {
       font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--text-muted);
+      margin-bottom: 8px;
     }
 
-    .card-pill {
-      font-size: 11px;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-muted);
-    }
-
-    .latest-main-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin: 0 0 6px;
-    }
-
-    .latest-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .latest-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .latest-meta span .sq {
-      width: 7px;
-      height: 7px;
-      border-radius: 2px;
-      background: linear-gradient(135deg, #22c55e, #22d3ee);
-    }
-
-    .card-description {
+    .hero-side-copy {
       font-size: 13px;
       color: var(--text-muted);
       margin-bottom: 10px;
     }
 
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--accent);
-      padding: 6px 0;
+    .hero-side-copy strong {
+      color: var(--accent-strong);
+      font-weight: 600;
     }
 
-    .card-link span.arrow {
-      font-size: 14px;
-    }
-
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .social-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .hero-side-mini {
       font-size: 11px;
-      padding: 6px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
       color: var(--text-muted);
     }
 
-    /* Video list */
-    section.videos {
-      margin-top: 28px;
-    }
-
-    .videos-header {
+    /* Video Deck */
+    .section-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      margin-top: 18px;
     }
 
-    .videos-title {
-      font-size: 15px;
-      letter-spacing: 0.16em;
+    .section-label {
+      font-family: "Oswald", system-ui, sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--text-muted);
     }
 
-    .videos-subtitle {
+    .section-sub {
       font-size: 12px;
       color: var(--text-muted);
     }
 
-    .videos-grid {
+    .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .video-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     .video-card {
-      background-color: rgba(15, 23, 42, 0.9);
+      background-color: var(--bg-card);
       border-radius: 18px;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid rgba(31, 41, 55, 0.9);
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+      position: relative;
     }
 
     .video-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.95);
-      border-color: rgba(148, 163, 184, 0.8);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 46px rgba(15, 23, 42, 0.98);
+      border-color: rgba(148, 163, 184, 0.9);
     }
 
     .video-thumb {
       position: relative;
       aspect-ratio: 16 / 9;
-      background-color: #020617;
+      background: radial-gradient(circle at top, #111827 0, #020617 60%);
       overflow: hidden;
     }
 
@@ -432,21 +393,57 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transform: scale(1.03);
+      transition: transform 0.18s ease, filter 0.18s ease;
+      filter: saturate(1.05) contrast(1.05);
     }
 
-    .video-duration {
+    .video-card:hover .video-thumb img {
+      transform: scale(1.06);
+      filter: saturate(1.1) contrast(1.08);
+    }
+
+    .status-pill {
       position: absolute;
-      bottom: 8px;
-      right: 8px;
+      top: 10px;
+      left: 10px;
       font-size: 11px;
-      padding: 3px 6px;
-      border-radius: 6px;
-      background-color: rgba(15, 23, 42, 0.85);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      background-color: rgba(15, 23, 42, 0.9);
       color: #e5e7eb;
     }
 
+    .status-public { border-color: #22c55e; color: #bbf7d0; }
+    .status-unlisted { border-color: #eab308; color: #fef9c3; }
+    .status-staging { border-color: #38bdf8; color: #bae6fd; }
+    .status-production { border-color: #f97316; color: #fed7aa; }
+
+    .play-overlay {
+      position: absolute;
+      inset: auto 12px 10px auto;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background-color: rgba(15, 23, 42, 0.96);
+      color: var(--accent-strong);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(249, 115, 22, 0.7);
+    }
+
+    .play-overlay span.icon {
+      font-size: 13px;
+    }
+
     .video-body {
-      padding: 10px 11px 12px;
+      padding: 10px 12px 12px;
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -458,18 +455,32 @@
       line-height: 1.3;
     }
 
-    .video-meta {
+    .video-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       font-size: 11px;
       color: var(--text-muted);
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
     }
 
+    .video-meta-tag {
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background-color: rgba(15, 23, 42, 0.95);
+    }
+
+    .video-description {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Footer */
     footer {
-      margin-top: 32px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
       font-size: 11px;
       color: var(--text-muted);
       display: flex;
@@ -481,7 +492,6 @@
     footer a {
       color: var(--text-muted);
       text-decoration: underline;
-      text-decoration-color: rgba(148, 163, 184, 0.5);
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
     }
@@ -491,162 +501,232 @@
   <div class="page">
     <header>
       <div class="brand">
-        <div class="brand-logo">N</div>
+        <div class="brand-mark">N</div>
         <div>
-          <div class="brand-text-main">The Next Curve</div>
-          <div class="brand-text-sub">Future Tech • AI • Wealth</div>
+          <div class="brand-text-main">THE NEXT CURVE</div>
+          <div class="brand-text-sub">
+            Future Tech • Wealth Stories • High-Stakes Documentaries
+          </div>
         </div>
       </div>
-      <nav class="nav-links">
+      <nav class="nav">
         <a href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" rel="noopener">
-          <span class="icon">▶</span>
-          <span>YouTube Channel</span>
+          <span class="icon">▶</span><span>Channel</span>
         </a>
-        <a href="https://www.instagram.com/thenextcurve.official" target="_blank" rel="noopener">
-          <span class="icon">◎</span>
-          <span>Instagram</span>
+        <a href="https://www.youtube.com/@TheNextCurveOfficial/videos" target="_blank" rel="noopener">
+          <span class="icon">▦</span><span>All Briefings</span>
         </a>
-        <a href="mailto:contact@thenextcurve.co.uk">
-          <span class="icon">✉</span>
-          <span>Contact</span>
+        <a href="#" id="contact-link">
+          <span class="icon">✉</span><span>Contact</span>
         </a>
       </nav>
     </header>
 
-    <main>
-      <!-- Hero / Featured investigation -->
-      <section class="hero">
+    <section class="hero">
+      <div class="hero-main">
         <div class="hero-tag">
           <span class="hero-tag-dot"></span>
-          LATEST INVESTIGATION
+          DOCUMENTING THE NEXT SYSTEM
         </div>
-        <h1 class="hero-title">The World’s Largest Biometric Leak</h1>
-        <p class="hero-subtitle">
-          1.4 billion biometric records exposed. How a quiet data spill turned into a global surveillance nightmare – and what it means for your face, your voice, and your identity.
+        <h1 class="hero-title">Technology. Money. Power. Colliding In Real Time.</h1>
+        <p class="hero-kicker">
+          The Next Curve is a long-form, narrative investigation channel tracking
+          the hidden operating systems behind AI, finance, and geopolitics — and
+          the quiet ways they rewrite the price of survival.
         </p>
 
-        <div class="hero-meta">
-          <span><span class="dot"></span> 32‑minute breakdown</span>
-          <span><span class="dot"></span> Deep dive • OSINT • Policy</span>
+        <div class="hero-meta-row">
+          <div class="hero-meta-pill">
+            <span class="sq"></span>
+            High-stakes briefings
+          </div>
+          <div class="hero-meta-pill">
+            <span class="sq"></span>
+            No fluff • Documentary pacing
+          </div>
         </div>
 
         <div class="hero-cta-row">
-          <a class="hero-cta-primary"
-             href="https://www.youtube.com/watch?v=YOUR_BIOMETRIC_VIDEO_ID"
-             target="_blank"
-             rel="noopener">
-            <span>Watch on YouTube</span>
+          <a class="hero-btn-primary"
+             href="https://www.youtube.com/@TheNextCurveOfficial"
+             target="_blank" rel="noopener">
+            <span>Enter the channel</span>
             <span>↗</span>
           </a>
-          <a class="hero-cta-secondary"
-             href="https://www.youtube.com/@TheNextCurveOfficial/videos"
-             target="_blank"
-             rel="noopener">
-            <span>All investigations</span>
+          <a class="hero-btn-secondary"
+             href="#videos">
+            <span>View the briefings below</span>
           </a>
         </div>
 
         <div class="hero-footnote">
-          New episodes dissect the **hidden operating systems** shaping AI, housing, healthcare, and the cost of living.
+          New episodes are built like intelligence dossiers — deep research,
+          sourced reporting, and a mentor’s lens on what it means for your
+          career, your money, and your country. <strong>No hype. No shortcuts.</strong>
         </div>
 
         <div class="hero-glow"></div>
-      </section>
-
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Channel Mission</div>
-            <div class="card-pill">Long‑form • No fluff</div>
-          </div>
-          <p class="card-description">
-            The Next Curve makes slow, deeply‑reported videos about how AI, money, and policy collide – and what those collisions do to ordinary people.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="card-title">Follow</div>
-          </div>
-          <div class="social-row">
-            <a class="social-chip" href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" rel="noopener">
-              <span>▶</span> <span>@TheNextCurveOfficial</span>
-            </a>
-            <a class="social-chip" href="https://www.instagram.com/thenextcurve.official" target="_blank" rel="noopener">
-              <span>◎</span> <span>@thenextcurve.official</span>
-            </a>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <!-- Long‑form videos list -->
-    <section class="videos">
-      <div class="videos-header">
-        <div class="videos-title">Long‑form videos</div>
-        <div class="videos-subtitle">Manually updated list of full investigations</div>
       </div>
 
-      <div class="videos-grid">
-        <!-- VIDEO CARD 1 -->
-        <a class="video-card" href="https://www.youtube.com/watch?v=YOUR_BIOMETRIC_VIDEO_ID" target="_blank" rel="noopener">
+      <aside class="hero-side">
+        <div class="hero-side-title">Channel Signal</div>
+        <p class="hero-side-copy">
+          <strong>The Next Curve</strong> sits at the intersection of future tech,
+          wealth stories, and geopolitical risk. The goal: translate complex,
+          systemic shifts into clear narratives you can actually act on.
+        </p>
+        <p class="hero-side-mini">
+          If you work in AI, policy, or finance — or you’re just trying to
+          survive the next wave of automation — these briefings are designed
+          to give you edge, not noise.
+        </p>
+      </aside>
+    </section>
+
+    <section id="videos">
+      <div class="section-header">
+        <div class="section-label">Current Briefings</div>
+        <div class="section-sub">Long-form investigations from the field desk</div>
+      </div>
+
+      <div class="video-grid">
+        <!-- CARD 1: PUBLIC -->
+        <a class="video-card"
+           href="https://www.youtube.com/watch?v=WnRWddp4Sjs"
+           target="_blank" rel="noopener">
           <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/YOUR_BIOMETRIC_VIDEO_ID/hqdefault.jpg" alt="The World's Largest Biometric Leak" />
-            <div class="video-duration">32:14</div>
+            <img src="https://img.youtube.com/vi/WnRWddp4Sjs/hqdefault.jpg"
+                 alt="Your Phone Is Spying on You: The Dark Silicon Secret" />
+            <div class="status-pill status-public">PUBLIC</div>
+            <div class="play-overlay">
+              <span class="icon">▶</span>
+              <span>PLAY BRIEFING</span>
+            </div>
           </div>
           <div class="video-body">
-            <div class="video-title">The World’s Largest Biometric Leak (1.4 Billion Exposed)</div>
-            <div class="video-meta">
-              <span>Investigation</span>
-              <span>Biometrics • Surveillance</span>
+            <div class="video-title">
+              Your Phone Is Spying on You: The Dark Silicon Secret
             </div>
+            <div class="video-meta-row">
+              <span class="video-meta-tag">Surveillance</span>
+              <span class="video-meta-tag">Data Economy</span>
+            </div>
+            <p class="video-description">
+              An investigation into the foundational layers of modern surveillance
+              architecture and the hidden data economy quietly wired into every
+              “smart” device you carry.
+            </p>
           </div>
         </a>
 
-        <!-- VIDEO CARD 2 -->
-        <a class="video-card" href="https://www.youtube.com/watch?v=3KQxQckG8ug" target="_blank" rel="noopener">
+        <!-- CARD 2: UNLISTED -->
+        <a class="video-card"
+           href="https://www.youtube.com/watch?v=Xq2Z8vP9kL1"
+           target="_blank" rel="noopener">
           <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/3KQxQckG8ug/hqdefault.jpg" alt="Replacing Humans With AI Is Catastrophically Backfiring" />
-            <div class="video-duration">XX:YY</div>
+            <img src="https://img.youtube.com/vi/Xq2Z8vP9kL1/hqdefault.jpg"
+                 alt="Cloud Decapitation" />
+            <div class="status-pill status-unlisted">UNLISTED</div>
+            <div class="play-overlay">
+              <span class="icon">▶</span>
+              <span>PLAY BRIEFING</span>
+            </div>
           </div>
           <div class="video-body">
-            <div class="video-title">Replacing Humans With AI Is Catastrophically Backfiring</div>
-            <div class="video-meta">
-              <span>Investigation</span>
-              <span>AI • Work • Automation</span>
+            <div class="video-title">
+              Cloud Decapitation
             </div>
+            <div class="video-meta-row">
+              <span class="video-meta-tag">Infrastructure</span>
+              <span class="video-meta-tag">Systemic Risk</span>
+            </div>
+            <p class="video-description">
+              An intelligence briefing on the vulnerability of global server
+              infrastructure — and how a single algorithm could seize leverage
+              over the human power structures built on top of it.
+            </p>
           </div>
         </a>
 
-        <!-- VIDEO CARD 3 – EXAMPLE -->
-        <a class="video-card" href="https://www.youtube.com/watch?v=YOUR_AI_LANDLORD_VIDEO_ID" target="_blank" rel="noopener">
+        <!-- CARD 3: STAGING -->
+        <a class="video-card"
+           href="https://www.youtube.com/watch?v=Yt7Mn3bC2x9"
+           target="_blank" rel="noopener">
           <div class="video-thumb">
-            <img src="https://img.youtube.com/vi/YOUR_AI_LANDLORD_VIDEO_ID/hqdefault.jpg" alt="AI Landlords" />
-            <div class="video-duration">XX:YY</div>
+            <img src="https://img.youtube.com/vi/Yt7Mn3bC2x9/hqdefault.jpg"
+                 alt="Digital Price Tags: Algorithmic Wealth Extraction" />
+            <div class="status-pill status-staging">STAGING</div>
+            <div class="play-overlay">
+              <span class="icon">▶</span>
+              <span>PLAY BRIEFING</span>
+            </div>
           </div>
           <div class="video-body">
-            <div class="video-title">AI Landlords: When Algorithms Own Your Home</div>
-            <div class="video-meta">
-              <span>Investigation</span>
-              <span>Housing • Algorithms</span>
+            <div class="video-title">
+              Digital Price Tags: Algorithmic Wealth Extraction
             </div>
+            <div class="video-meta-row">
+              <span class="video-meta-tag">Retail Systems</span>
+              <span class="video-meta-tag">Algorithmic Pricing</span>
+            </div>
+            <p class="video-description">
+              An analysis of how electronic shelf labels turn grocery aisles into
+              real-time markets — enabling automated micro-transactions against
+              the working class through surge-style pricing on essentials.
+            </p>
           </div>
         </a>
 
-        <!-- Add more video cards here as you publish new long‑form videos -->
+        <!-- CARD 4: PRODUCTION -->
+        <a class="video-card"
+           href="https://www.youtube.com/watch?v=Zk9Qw4vD5n2"
+           target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/Zk9Qw4vD5n2/hqdefault.jpg"
+                 alt="The Stolen Operating System" />
+            <div class="status-pill status-production">PRODUCTION</div>
+            <div class="play-overlay">
+              <span class="icon">▶</span>
+              <span>PLAY BRIEFING</span>
+            </div>
+          </div>
+          <div class="video-body">
+            <div class="video-title">
+              The Stolen Operating System
+            </div>
+            <div class="video-meta-row">
+              <span class="video-meta-tag">Geopolitics</span>
+              <span class="video-meta-tag">Defense Tech</span>
+            </div>
+            <p class="video-description">
+              A geopolitical breakdown of how a captured stealth drone in 2011
+              inverted the financial math of global warfare — and why that
+              single incident still echoes through today’s arms race.
+            </p>
+          </div>
+        </a>
       </div>
     </section>
 
     <footer>
-      <span>© <span id="year"></span> The Next Curve.</span>
+      <span>© <span id="year"></span> The Next Curve. All rights reserved.</span>
       <span>Hosted on GitHub Pages.</span>
     </footer>
   </div>
 
   <script>
-    // simple dynamic year for footer
+    // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Inject email on load (basic bot protection)
+    (function() {
+      var user = "thenextcurve.cs";
+      var domain = "gmail.com";
+      var email = user + "@" + domain;
+      var contactLink = document.getElementById("contact-link");
+      contactLink.href = "mailto:" + email;
+      contactLink.title = email;
+    })();
   </script>
 </body>
 </html>
