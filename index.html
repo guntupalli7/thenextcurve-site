@@ -1,311 +1,652 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Next Curve</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-base: #030303;
-            --bg-surface: #121212;
-            --bg-elevated: #1e1e1e;
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
-            --accent: #E50914; /* Cinematic Red */
-            --border: #2a2a2a;
-        }
+  <meta charset="UTF-8" />
+  <title>The Next Curve | Future Tech & Wealth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The Next Curve – long-form investigations into AI, future tech, and the economy." />
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-        }
+  <!-- Simple, clean styling -->
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-card: #0b1020;
+      --accent: #4ade80;
+      --accent-soft: rgba(74, 222, 128, 0.15);
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --border-subtle: #1f2933;
+      --danger: #f97373;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        /* Hero Section */
-        header {
-            margin-bottom: 60px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 40px;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #111827 0, #020617 55%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
 
-        h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin: 0 0 10px 0;
-            line-height: 1.1;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .tagline {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            font-weight: 300;
-            max-width: 600px;
-        }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
 
-        /* Section Headers */
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
 
-        .section-header h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0;
-            color: var(--text-primary);
-        }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        .section-header .line {
-            height: 1px;
-            flex-grow: 1;
-            background-color: var(--border);
-            margin-left: 20px;
-        }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: conic-gradient(from 220deg, #22c55e, #22d3ee, #6366f1, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+      color: #020617;
+    }
 
-        /* Cinematic Video Grid */
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-bottom: 60px;
-        }
+    .brand-text-main {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
 
-        .video-card {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-        }
+    .brand-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
 
-        .video-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--text-secondary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-        .video-thumbnail {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background-color: var(--bg-elevated);
-            background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1000'); /* Placeholder high-tech image */
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            border-bottom: 1px solid var(--border);
-        }
+    .nav-links a {
+      font-size: 13px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-        .video-thumbnail::after {
-            content: "▶ PLAY BRIEFING";
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(0,0,0,0.8);
-            color: var(--text-primary);
-            padding: 6px 12px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-radius: 2px;
-            backdrop-filter: blur(4px);
-        }
+    .nav-links a span.icon {
+      font-size: 14px;
+    }
 
-        .video-info {
-            padding: 25px;
-        }
+    .nav-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background-color: rgba(15, 23, 42, 0.9);
+    }
 
-        .video-meta {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+      gap: 24px;
+    }
 
-        .video-title {
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 0 0 10px 0;
-            line-height: 1.3;
-        }
+    @media (max-width: 880px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
 
-        .video-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin: 0;
-        }
+    .hero {
+      background: radial-gradient(circle at top left, #111827 0, #020617 70%);
+      border-radius: 24px;
+      padding: 24px 24px 20px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.85),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
 
-        /* Protocol / Contact Section */
-        .protocol-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background-color: var(--accent-soft);
+      border: 1px solid rgba(74, 222, 128, 0.45);
+      margin-bottom: 12px;
+    }
 
-        @media (max-width: 768px) {
-            .protocol-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    .hero-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background-color: var(--accent);
+      box-shadow: 0 0 10px rgba(74, 222, 128, 0.9);
+    }
 
-        .data-panel {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border);
-            padding: 30px;
-            border-radius: 4px;
-        }
+    .hero-title {
+      font-size: clamp(26px, 4vw, 32px);
+      line-height: 1.1;
+      margin: 0 0 10px;
+    }
 
-        .data-label {
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 16px;
+    }
 
-        .data-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
 
-        .data-value:last-child {
-            margin-bottom: 0;
-        }
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background-color: rgba(15, 23, 42, 0.8);
+    }
 
-        .email-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent);
-            padding-bottom: 2px;
-            transition: color 0.2s;
-        }
+    .hero-meta span .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background-color: #22d3ee;
+    }
 
-        .email-link:hover {
-            color: var(--accent);
-        }
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
 
-        .network-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: color 0.2s;
-        }
-        
-        .network-link:hover {
-            color: var(--accent);
-        }
+    .hero-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #22c55e, #22d3ee);
+      color: #020617;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 10px 35px rgba(34, 197, 94, 0.35);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    }
 
-        .status-dot {
-            height: 8px;
-            width: 8px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            display: inline-block;
-        }
-    </style>
+    .hero-cta-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 14px 40px rgba(34, 197, 94, 0.45);
+    }
+
+    .hero-cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background-color: rgba(15, 23, 42, 0.85);
+      color: var(--text-muted);
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .hero-cta-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-footnote {
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-footnote strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: auto -40% -55%;
+      height: 260px;
+      background: radial-gradient(circle at center, rgba(34, 197, 94, 0.24), transparent 65%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    /* Sidebar / Latest Investigation */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border-radius: 20px;
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .card-pill {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+    }
+
+    .latest-main-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 6px;
+    }
+
+    .latest-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .latest-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .latest-meta span .sq {
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      background: linear-gradient(135deg, #22c55e, #22d3ee);
+    }
+
+    .card-description {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--accent);
+      padding: 6px 0;
+    }
+
+    .card-link span.arrow {
+      font-size: 14px;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .social-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+    }
+
+    /* Video list */
+    section.videos {
+      margin-top: 28px;
+    }
+
+    .videos-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .videos-title {
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .videos-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .video-card {
+      background-color: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.8);
+    }
+
+    .video-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background-color: #020617;
+      overflow: hidden;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-duration {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      font-size: 11px;
+      padding: 3px 6px;
+      border-radius: 6px;
+      background-color: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+    }
+
+    .video-body {
+      padding: 10px 11px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .video-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .video-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-decoration-color: rgba(148, 163, 184, 0.5);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+  </style>
 </head>
 <body>
-
-<div class="container">
+  <div class="page">
     <header>
-        <h1>The Next Curve</h1>
-        <div class="tagline">Documenting the hidden infrastructure of technology, wealth, and global power.</div>
+      <div class="brand">
+        <div class="brand-logo">N</div>
+        <div>
+          <div class="brand-text-main">The Next Curve</div>
+          <div class="brand-text-sub">Future Tech • AI • Wealth</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" rel="noopener">
+          <span class="icon">▶</span>
+          <span>YouTube Channel</span>
+        </a>
+        <a href="https://www.instagram.com/thenextcurve.official" target="_blank" rel="noopener">
+          <span class="icon">◎</span>
+          <span>Instagram</span>
+        </a>
+        <a href="mailto:contact@thenextcurve.co.uk">
+          <span class="icon">✉</span>
+          <span>Contact</span>
+        </a>
+      </nav>
     </header>
 
-    <section>
-        <div class="section-header">
-            <h2>Latest Intelligence</h2>
-            <div class="line"></div>
+    <main>
+      <!-- Hero / Featured investigation -->
+      <section class="hero">
+        <div class="hero-tag">
+          <span class="hero-tag-dot"></span>
+          LATEST INVESTIGATION
         </div>
-        
-        <div class="video-grid">
-            <a href="https://www.youtube.com/watch?v=WnRWddp4Sjs" target="_blank" class="video-card">
-                <div class="video-thumbnail"></div>
-                <div class="video-info">
-                    <div class="video-meta">Public &bull; Hardware/Data Economy</div>
-                    <h3 class="video-title">Your Phone Is Spying on You: The Dark Silicon Secret</h3>
-                    <p class="video-desc">An investigation into the foundational layers of modern surveillance architecture.</p>
-                </div>
+        <h1 class="hero-title">The World’s Largest Biometric Leak</h1>
+        <p class="hero-subtitle">
+          1.4 billion biometric records exposed. How a quiet data spill turned into a global surveillance nightmare – and what it means for your face, your voice, and your identity.
+        </p>
+
+        <div class="hero-meta">
+          <span><span class="dot"></span> 32‑minute breakdown</span>
+          <span><span class="dot"></span> Deep dive • OSINT • Policy</span>
+        </div>
+
+        <div class="hero-cta-row">
+          <a class="hero-cta-primary"
+             href="https://www.youtube.com/watch?v=YOUR_BIOMETRIC_VIDEO_ID"
+             target="_blank"
+             rel="noopener">
+            <span>Watch on YouTube</span>
+            <span>↗</span>
+          </a>
+          <a class="hero-cta-secondary"
+             href="https://www.youtube.com/@TheNextCurveOfficial/videos"
+             target="_blank"
+             rel="noopener">
+            <span>All investigations</span>
+          </a>
+        </div>
+
+        <div class="hero-footnote">
+          New episodes dissect the **hidden operating systems** shaping AI, housing, healthcare, and the cost of living.
+        </div>
+
+        <div class="hero-glow"></div>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Channel Mission</div>
+            <div class="card-pill">Long‑form • No fluff</div>
+          </div>
+          <p class="card-description">
+            The Next Curve makes slow, deeply‑reported videos about how AI, money, and policy collide – and what those collisions do to ordinary people.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Follow</div>
+          </div>
+          <div class="social-row">
+            <a class="social-chip" href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" rel="noopener">
+              <span>▶</span> <span>@TheNextCurveOfficial</span>
             </a>
+            <a class="social-chip" href="https://www.instagram.com/thenextcurve.official" target="_blank" rel="noopener">
+              <span>◎</span> <span>@thenextcurve.official</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Long‑form videos list -->
+    <section class="videos">
+      <div class="videos-header">
+        <div class="videos-title">Long‑form videos</div>
+        <div class="videos-subtitle">Manually updated list of full investigations</div>
+      </div>
+
+      <div class="videos-grid">
+        <!-- VIDEO CARD 1 -->
+        <a class="video-card" href="https://www.youtube.com/watch?v=YOUR_BIOMETRIC_VIDEO_ID" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/YOUR_BIOMETRIC_VIDEO_ID/hqdefault.jpg" alt="The World's Largest Biometric Leak" />
+            <div class="video-duration">32:14</div>
+          </div>
+          <div class="video-body">
+            <div class="video-title">The World’s Largest Biometric Leak (1.4 Billion Exposed)</div>
+            <div class="video-meta">
+              <span>Investigation</span>
+              <span>Biometrics • Surveillance</span>
             </div>
+          </div>
+        </a>
+
+        <!-- VIDEO CARD 2 -->
+        <a class="video-card" href="https://www.youtube.com/watch?v=3KQxQckG8ug" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/3KQxQckG8ug/hqdefault.jpg" alt="Replacing Humans With AI Is Catastrophically Backfiring" />
+            <div class="video-duration">XX:YY</div>
+          </div>
+          <div class="video-body">
+            <div class="video-title">Replacing Humans With AI Is Catastrophically Backfiring</div>
+            <div class="video-meta">
+              <span>Investigation</span>
+              <span>AI • Work • Automation</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- VIDEO CARD 3 – EXAMPLE -->
+        <a class="video-card" href="https://www.youtube.com/watch?v=YOUR_AI_LANDLORD_VIDEO_ID" target="_blank" rel="noopener">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/YOUR_AI_LANDLORD_VIDEO_ID/hqdefault.jpg" alt="AI Landlords" />
+            <div class="video-duration">XX:YY</div>
+          </div>
+          <div class="video-body">
+            <div class="video-title">AI Landlords: When Algorithms Own Your Home</div>
+            <div class="video-meta">
+              <span>Investigation</span>
+              <span>Housing • Algorithms</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Add more video cards here as you publish new long‑form videos -->
+      </div>
     </section>
 
-    <section>
-        <div class="section-header">
-            <h2>Telemetry & Communications</h2>
-            <div class="line"></div>
-        </div>
-        
-        <div class="protocol-grid">
-            <div class="data-panel">
-                <div class="data-label">Secure Channel</div>
-                <div class="data-value" id="secure-email">
-                    </div>
-                
-                <div class="data-label">Protocol</div>
-                <div class="data-value" style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 400;">
-                    Direct all inquiries, intelligence tips, and commercial propositions here. High-signal communications only.
-                </div>
-            </div>
+    <footer>
+      <span>© <span id="year"></span> The Next Curve.</span>
+      <span>Hosted on GitHub Pages.</span>
+    </footer>
+  </div>
 
-            <div class="data-panel">
-                <div class="data-label">Primary Network</div>
-                <div class="data-value">
-                    <a href="https://www.youtube.com/@TheNextCurveOfficial" target="_blank" class="network-link">
-                        YouTube Main
-                    </a>
-                </div>
-
-                <div class="data-label">Network Status</div>
-                <div class="data-value">
-                    <span class="status-dot"></span> Operational
-                </div>
-                
-                <div class="data-label">Niche Focus</div>
-                <div class="data-value" style="color: var(--text-secondary); font-weight: 400;">
-                    Future Tech & Wealth Stories
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-<script>
-    // Security layer: Reconstruct the new email address at runtime
-    document.addEventListener("DOMContentLoaded", function() {
-        const user = "thenextcurve.cs";
-        const domain = "gmail.com";
-        const target = document.getElementById("secure-email");
-        target.innerHTML = `<a href="mailto:${user}@${domain}" class="email-link">${user}@${domain}</a>`;
-    });
-</script>
-
+  <script>
+    // simple dynamic year for footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
